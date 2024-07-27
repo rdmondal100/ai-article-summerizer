@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
 
         <div className="copyright   text-black">
-      © 2024 <a href="http://ridaymondal.vercel.app" target="_blank" rel="noopener noreferrer" className=" own-gradien">Riday</a>, all rights reserved
+      © 2024 <a href="http://riday.tech" target="_blank" rel="noopener noreferrer" className=" own-gradien">Riday</a>, all rights reserved
       </div>
 
     </footer>
