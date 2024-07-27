@@ -53,7 +53,7 @@
     radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
     radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
     radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+    radial-gradient(at 79% 53%, rgb(27, 18, 84) 0px, transparent 50%);
   position: absolute;
   content: "";
   width: 100%;
@@ -82,9 +82,75 @@
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
 
-.black_btn {
-  @apply rounded-full border border-black bg-black py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-black;
+/* .black_btn {
+  @apply rounded-full border border-black bg-black py-1.5 px-5 text-sm text-white transition-all hover:bg-transparent hover:text-black;
+} */
+
+.github{
+
+width: 110px;
+height: 45px;
+position: relative;
+overflow: hidden;
+background-color: black;
+/* width: 100%;
+height: 100%; */
+border-radius: 9999px;
+padding: 8px 20px;
+display: flex;
+justify-content: center;
+transition: all .4s ease-in-out;
 }
+.black_btn{
+  color: white;
+  z-index: 10;
+
+
+}
+.github::before{
+  content: "";
+  position: absolute; 
+  width: 105%;
+  height: 100%;
+  background: linear-gradient(to right,green, #065085); 
+
+  border: 2px solid white;
+  box-shadow: 3px 3px 14px 16px white;
+  display: block;
+  border-radius: 9999px;
+  z-index: 11;
+  overflow: hidden;
+  transform: translateY(-125%);
+  transition: all .4s ease-in ;
+  z-index: -1;
+
+}
+.github:hover{
+background-color: transparent;
+}
+.github:hover::before{
+transform: translateY(-18%);
+z-index: 12;
+
+}
+.github:hover .black_btn{
+
+z-index: 100;
+background: linear-gradient(to right, #00C7F2,#006DBA, #00ff00); 
+color: transparent;
+-webkit-background-clip: text;
+background-clip: text;
+mask-image: linear-gradient(to right, #fff, #fff);
+font-weight: 800;
+}
+
+
+
+
+
+
+
+
 
 .head_text {
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl text-center;
@@ -107,11 +173,11 @@
 }
 
 .link_card {
-  @apply p-3 flex justify-start items-center flex-row bg-white border border-gray-200 gap-3 rounded-lg cursor-pointer;
+  @apply p-3 flex justify-start items-center flex-row  h-auto bg-white border border-gray-200 gap-3 rounded-lg cursor-pointer w-full;
 }
 
 .copy_btn {
-  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+  @apply w-10 h-10 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer ;
 }
 
 .blue_gradient {

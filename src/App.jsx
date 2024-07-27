@@ -2,9 +2,11 @@
 import Hero from './components/Hero'
 import Demo from './components/Demo'
 import './App.css'
+import Footer from './components/Footer'
 const App = () => {
   return (
-    <main>
+    <>
+        <main>
       <div className="main">
         <div className="gradient">
 
@@ -15,6 +17,9 @@ const App = () => {
         <Demo/>
       </div>
     </main>
+    <Footer/>
+    </>
+
   )  
 
 }

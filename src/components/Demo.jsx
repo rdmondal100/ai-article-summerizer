@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { tick, copy, linkIcon, loader } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
+import { nanoid } from "@reduxjs/toolkit";
+
 
 const Demo = () => {
   const [article, setArticle] = useState({
     url: "",
     summary: "",
+    id:""
   });
 
   const [copied, setCopied] = useState([]);
@@ -31,7 +34,7 @@ const Demo = () => {
       const { data } = await getSummary({ articleUrl });
 
       if (data?.summary) {
-        const urlSummary = { url: articleUrl, summary: data.summary };
+        const urlSummary = { url: articleUrl, summary: data.summary,id:nanoid() };
         const newArticles = [urlSummary, ...allArticles];
 
         setAllArticles(newArticles);
@@ -44,8 +47,8 @@ const Demo = () => {
     }
   };
 
-  const handleCopy = (copyUrl) => {
-    setCopied(copyUrl);
+  const handleCopy = (copyUrl,id) => {
+    setCopied(id);
     navigator.clipboard.writeText(copyUrl);
     setTimeout(() => {
       setCopied(false);
@@ -79,26 +82,27 @@ const Demo = () => {
             ↩{" "}
           </button>
         </form>
-        <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
+        <div className="flex flex-col gap-1 max-h-60  w-full overflow-y-auto ">
           {allArticles.map((item, index) => (
             <div
               key={`link-${index}`}
               onClick={() => setArticle(item)}
-              className="link_card"
+              className=" w-full flex items-center  bg-white border border-gray-200  rounded-lg   p-3 gap-4 hover:text-green-400"
             >
               <div
-                className="copy_btn"
+                className=" w-1/12 cursor-pointer hover:own-gradien"
                 onClick={() => {
-                  handleCopy(item.url);
+                  handleCopy(item?.url,item?.id);
                 }}
               >
                 <img
-                  src={copied === item.url ? tick : copy}
+                  src={copied === item?.id ? tick : copy}
                   alt="copy_icon"
-                  className="w-[40%] h-[40%] object-contain"
+                  className=" w-5 md:w-6 lg:w-7"
+                  
                 />
               </div>
-              <p>{item.url}</p>
+              <p className="relative w-11/12   text-sm md:text-base overflow-hidden ">{item.url}</p>
             </div>
           ))}
         </div>

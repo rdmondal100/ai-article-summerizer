@@ -5,7 +5,11 @@ const Hero = () => {
       <nav className="flex justify-between items-center w-full mb-10 pt-5">
         
         <img src={logo} alt="Logo" className="w-60 object-contain"/>
-        <button type="button" onClick={()=>window.open('https://github.com/rdmondal100')} className="black_btn">GitHub</button>
+        <a href="https://github.com/rdmondal100" className=" github">
+        <button type="button"  className="black_btn">GitHub</button>
+
+        </a>
+
       </nav>
       <h1 className="head_text"> Summarize Your Articles with <br className="max-md:hidden"/>
       <span className="own-gradien">OpenAi GPT-4</span></h1>
